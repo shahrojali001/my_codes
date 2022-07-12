@@ -1,22 +1,14 @@
-"""Defination:Program to Remove multiple elements from a list """
-def remove_element(list1,unwanted):
-    """Algorithm to remove elements"""
-    for element in unwanted:
-        for j in list1:
-            if j==element:
-                list1.remove(element)
-    return list1
+"""Defination:Python program to implement selection sort"""
+def sorting(my_list):
+    """function for the selection sort"""
+    for element in range(0, len(my_list) - 1):
+        smallest = element
+        for charactor in range(element + 1, len(my_list)):
+            if my_list[charactor] < my_list[smallest]:
+                smallest = charactor
+        my_list[element], my_list[smallest] = my_list[smallest], my_list[element]
+    return my_list
 if __name__=='__main__':
-    LIST1=[]
-    UNWANTED=[]
-    list_length=int(input("Enter the length of list: "))
-    for char in range(0,list_length):
-        elements=int(input("Enter the element of list: "))
-        LIST1.append(elements)
-    print(f"original list : \n {LIST1}")
-    unwanted_length=int(input("Enter the length of list containing unwanted elements: "))
-    for char in range(0,unwanted_length):
-        elements=int(input("Enter the element to remove: "))
-        UNWANTED.append(elements)
-    print(f"unwanted elements: \n {UNWANTED}")
-    print(f"The final list is : \n {remove_element(LIST1,UNWANTED)}")
+    LIST1=input('Enter the list of numbers : ').split()
+    MY_LIST=[int(x) for x in LIST1]
+    print(f'List after sorting is : {sorting(MY_LIST)}')
